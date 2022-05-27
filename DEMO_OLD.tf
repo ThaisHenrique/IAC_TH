@@ -1,10 +1,17 @@
 provider "oci" {
-    region = var.region
+  region = var.region
 }
 
-variable "compartment_ocid" {}
-variable "region" {}
-variable "bucket_name" {}
+variable "compartment_ocid" {
+  default = "insira o OCID do Compartment onde será criado o bucket"
+}
+variable "region" {
+  default = "insira a região onde o seu Tenancy está criado ex: us-ashburn-1"
+}
+
+variable "bucket_name" {
+  default = "resource_manager_demo_bucket"
+}
 
 data "oci_objectstorage_namespace" "namespace" {
   compartment_id = var.compartment_ocid
